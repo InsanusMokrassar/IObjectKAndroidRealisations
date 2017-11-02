@@ -1,15 +1,19 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 apply plugin: 'kotlin-android'
+
+group = 'com.github.insanusmokrassar.IObjectKAndroidRealisations'
+version = 10
 
 android {
     compileSdkVersion 27
     buildToolsVersion "27.0.0"
     defaultConfig {
+        applicationId project.group
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode project.version
+        versionName "${project.version/100}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -37,12 +41,18 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            group project.group
-            artifactId project.name
-            version project.version
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    pkg {
+        repo = 'generic'
+        name = project.group
+        userOrg = 'insanusmokrassar'
+        vcsUrl = 'https://github.com/InsanusMokrassar/IObjectKAndroidRealisations.git'
+        version {
+            name = "${project.version/100}"
+            released  = new Date()
+            vcsTag = "${project.version/100}"
         }
     }
 }
