@@ -9,7 +9,7 @@ import com.github.insanusmokrassar.IObjectKAndroidRealisations.utils.deserialize
 import com.github.insanusmokrassar.IObjectKAndroidRealisations.utils.serialize
 import java.io.*
 
-private val cache = HashMap<String, MutableMap<String, SPIObject>>()
+private val cache = HashMap<String, MutableMap<String, KeyValueStore>>()
 
 fun Context.keyValueStore(
         name: String = getString(R.string.standardSharedPreferencesName)
@@ -21,7 +21,7 @@ fun Context.keyValueStore(
                 mutableMapOf(
                         Pair(
                                 name,
-                                SPIObject(this, name)
+                                KeyValueStore(this, name)
                         )
                 )
         )
@@ -31,9 +31,9 @@ fun Context.keyValueStore(
     }
 }
 
-class SPIObject internal constructor (
+class KeyValueStore internal constructor (
         c: Context,
-        preferencesName: String
+        preferencesName: String = c.getString(R.string.defaultKeyValueStore)
 ) : IObject<Any>, SharedPreferences.OnSharedPreferenceChangeListener {
     private val sharedPreferences = c.getSharedPreferences(preferencesName, Context.MODE_PRIVATE)
 
