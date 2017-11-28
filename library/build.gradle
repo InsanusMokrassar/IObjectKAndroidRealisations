@@ -3,7 +3,7 @@ apply plugin: 'com.novoda.bintray-release'
 
 group = 'com.github.insanusmokrassar'
 def artifactName = "IObjectKAndroidRealisations"
-version = 10
+version = 100
 
 android {
     compileSdkVersion 27

@@ -7,7 +7,7 @@ import com.github.insanusmokrassar.IObjectK.realisations.SimpleIObject
 import com.github.insanusmokrassar.IObjectKAndroidRealisations.utils.canBeSerializable
 import com.github.insanusmokrassar.IObjectKAndroidRealisations.utils.deserialize
 import com.github.insanusmokrassar.IObjectKAndroidRealisations.utils.serialize
-import java.io.*
+import java.io.Serializable
 
 private val cache = HashMap<String, MutableMap<String, KeyValueStore>>()
 
