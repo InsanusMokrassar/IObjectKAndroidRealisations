@@ -2,7 +2,6 @@ package com.github.insanusmokrassar.IObjectKAndroidRealisations.utils
 
 import java.io.*
 
-
 val serializableControlWord = "Serializable"
 
 fun addKeywordToSerializable(addTo: String): String

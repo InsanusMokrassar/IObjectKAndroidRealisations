@@ -1,5 +1,3 @@
 <resources>
-    <string name="app_name">IObjectKAndroidRealisations</string>
-    <string name="standardSharedPreferencesName" translatable="false">defaultSP</string>
-    <string name="defaultKeyValueStore">defaultKeyValueStore</string>
+    <string name="defaultKeyValueStore" translatable="false">defaultKeyValueStore</string>
 </resources>

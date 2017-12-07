@@ -12,7 +12,7 @@ import java.io.Serializable
 private val cache = HashMap<String, MutableMap<String, KeyValueStore>>()
 
 fun Context.keyValueStore(
-        name: String = getString(R.string.standardSharedPreferencesName)
+        name: String = getString(R.string.defaultKeyValueStore)
 ): IObject<Any> {
     val className = this::class.java.simpleName
     return if (cache[className] ?.get(name) == null) {

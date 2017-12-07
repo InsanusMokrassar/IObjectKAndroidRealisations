@@ -22,7 +22,9 @@ android {
         }
     }
     sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        main {
+            java.srcDirs = ['src/main/kotlin']
+        }
     }
     lintOptions {
         warning 'InvalidPackage'
@@ -49,8 +51,11 @@ tasks.withType(Javadoc).all {
 
 publish {
     userOrg = 'insanusmokrassar'
+    bintrayUser = properties.BINTRAY_USER
+    bintrayKey = properties.BINTRAY_KEY
     groupId = project.group
     artifactId = artifactName
     publishVersion = "${project.version/100}"
-    repoName 'StandardRepository'
+    repoName System.getenv('BINTRAY_REPO')
+    dryRun = false
 }
